@@ -1,7 +1,7 @@
 export default function Example() {
   return (
     <>
-      {/*
+      {/* MJ! 
         This example requires updating your template:
 
         ```
