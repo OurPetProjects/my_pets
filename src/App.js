@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,14 +9,15 @@ import { setContext } from "@apollo/client/link/context";
 import { 
   Routes, 
   Route,
-  useLocation
  } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home"
 import SignUp from "./pages/SignUp"
 
- const url = process.env.NODE_ENV === 'development'
- ? '/graphql' : "PUT-DEPLOY-ROUTE-HERE";
+const url = '/graphql'
+
+// process.env.NODE_ENV === 'development' ? '/graphql' : "PUT-DEPLOY-ROUTE-HERE";
+
 const httpLink = createHttpLink({
  uri: url,
 });
@@ -33,7 +34,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 // Execute the `authLink` middleware prior to making the request to our GraphQL API
- const client = new ApolloClient({
+const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
@@ -41,10 +42,13 @@ const authLink = setContext((_, { headers }) => {
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+      <>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+        </Routes>
+      </>
     </ApolloProvider>
   );
 }
