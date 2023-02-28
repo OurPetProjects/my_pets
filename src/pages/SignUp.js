@@ -1,4 +1,19 @@
-export default function Example() {
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+
+// import Auth from '../utils/auth';
+
+export default function SignUp() {
+  const navigate = useNavigate();
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({
+    first_name: "",
+    last_name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
   return (
     <>
       {/* MJ! 
