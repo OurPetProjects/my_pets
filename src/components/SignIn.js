@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
+import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 
 // import Auth from '../utils/auth';
 
 export default function SignIn({setFormChoice}) {
   return (
       <div className="flex min-h-full object-fill">
-        <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-          <div className="mx-auto w-full max-w-sm lg:w-96">
-            <div>
-              <img
-                className="h-12 w-auto object-fill"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
+
+        <div className="flex flex-1 flex-col justify-center mb-28 py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div className='flex justify-center'>
+        <LogoCircleOnly 
+               className="h-80 w-auto object-fill mb-14"
+               alt="My Pets logo"
               />
+              </div>
+          <div className=" mx-auto w-full max-w-sm lg:w-96">
+
+            <div className=''>
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
               <p className="mt-2 text-sm text-gray-600">
                 Or{' '}
