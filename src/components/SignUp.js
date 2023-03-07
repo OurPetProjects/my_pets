@@ -13,8 +13,8 @@ export default function SignIn({setFormChoice}) {
             <div>
               <img
                 className="h-12 w-auto object-fill"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
+                src="../assets/logos/logo-transparent.svg"
+                alt="My Pets"
               />
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">Sign up to join our community of pet lovers</h2>
               <p className="mt-2 text-sm text-gray-600">
