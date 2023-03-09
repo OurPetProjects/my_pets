@@ -1,21 +1,36 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 
 
 // import Auth from '../utils/auth';
 
 export default function SignIn({setFormChoice}) {
+  const navigate = useNavigate()
+  const [formState, setFormState] = useState({email:'', password: ''})
+
+  // Update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setFormState({...formState, [name]: value})
+  }
+
+  const handleFormSubmit = async (event) => {
+    console.log('Hi!')
+  }
   return (
       <div className="flex min-h-full object-fill">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img
-                className="h-12 w-auto object-fill"
-                src="../assets/logos/logo-transparent.svg"
-                alt="My Pets"
+            <div className='flex justify-center'>
+              <LogoCircleOnly 
+               className="h-56 w-auto object-fill mb-14"
+               alt="My Pets logo"
               />
+              </div>
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">Sign up to join our community of pet lovers</h2>
               <p className="mt-2 text-sm text-gray-600">
                 Or{' '}
@@ -27,7 +42,7 @@ export default function SignIn({setFormChoice}) {
 
             <div className="mt-8">
               <div className="mt-6">
-                <form action="#" method="POST" className="space-y-6">
+                <form onSubmit={handleFormSubmit}action="#" method="POST" className="space-y-6">
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                       First Name
@@ -40,6 +55,8 @@ export default function SignIn({setFormChoice}) {
                         autoComplete="email"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        value={formState.email}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
