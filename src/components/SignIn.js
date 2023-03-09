@@ -6,6 +6,20 @@ import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full
 // import Auth from '../utils/auth';
 
 export default function SignIn({setFormChoice}) {
+  const navigate = useNavigate()
+  const [formState, setFormState] = useState({username:'', password: ''})
+
+  // Update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setFormState({...formState, [name]: value})
+  }
+
+  // Submit form
+  const handleFormSubmit = async (event) => {
+    console.log("Hi!")
+  }
   return (
       <div className="flex min-h-full object-fill">
 
@@ -30,19 +44,21 @@ export default function SignIn({setFormChoice}) {
 
             <div className="mt-8">
               <div className="mt-6">
-                <form action="#" method="POST" className="space-y-6">
+                <form action="#" method="POST" className="space-y-6" onSubmit={handleFormSubmit}>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                      Email address
+                      Username
                     </label>
                     <div className="mt-1">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        placeholder="Enter your username address"
+                        id="username"
+                        name="username"
+                        type="username"
+                        value={formState.username}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                   </div>
@@ -53,12 +69,14 @@ export default function SignIn({setFormChoice}) {
                     </label>
                     <div className="mt-1">
                       <input
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        placeholder="Enter your password"
                         id="password"
                         name="password"
                         type="password"
-                        autoComplete="current-password"
+                        value={formState.password}
+                        onChange={handleChange}
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
