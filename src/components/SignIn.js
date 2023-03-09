@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations'
+import Auth from '../utils/auth'
 import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 
 // import Auth from '../utils/auth';
@@ -8,6 +10,7 @@ import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full
 export default function SignIn({setFormChoice}) {
   const navigate = useNavigate()
   const [formState, setFormState] = useState({username:'', password: ''})
+  const [login, {error, data}] = useMutation(LOGIN_USER)
 
   // Update state based on form input changes
   const handleChange = (event) => {
@@ -18,8 +21,24 @@ export default function SignIn({setFormChoice}) {
 
   // Submit form
   const handleFormSubmit = async (event) => {
-    console.log("Hi!")
-  }
+    event.preventDefault();
+    console.log(formState)
+
+    try {
+      const { data } = await login({variables: { ...formState },
+      })
+
+      Auth.login(data.login.token);
+      // navigate()
+    } catch (err) {
+      console.error(JSON.stringify(err,null,2))
+    }
+
+    setFormState({
+      username: '',
+      password: '',
+    })
+    }
   return (
       <div className="flex min-h-full object-fill">
 
