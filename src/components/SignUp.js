@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+
 import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 
 
@@ -8,17 +9,20 @@ import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full
 
 export default function SignIn({setFormChoice}) {
   const navigate = useNavigate()
-  const [formState, setFormState] = useState({email:'', password: ''})
+  const [formState, setFormState] = useState({firstName:'', lastName:'', username:'',email:'', password: ''})
 
   // Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target
 
+    console.log(name + value)
+
     setFormState({...formState, [name]: value})
   }
 
   const handleFormSubmit = async (event) => {
-    console.log('Hi!')
+    event.preventDefault();
+    console.log(formState)
   }
   return (
       <div className="flex min-h-full object-fill">
@@ -44,51 +48,55 @@ export default function SignIn({setFormChoice}) {
               <div className="mt-6">
                 <form onSubmit={handleFormSubmit}action="#" method="POST" className="space-y-6">
                 <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="Firstname" className="block text-sm font-medium text-gray-700">
                       First Name
                     </label>
                     <div className="mt-1">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
+                        id="firstName"
+                        name="firstName"
+                        type="firstName"
+                        autoComplete="firstName"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        value={formState.email}
+                        value={formState.firstName}
                         onChange={handleChange}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
                       Last Name
                     </label>
                     <div className="mt-1">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
+                        id="lastName"
+                        name="lastName"
+                        type="lastName"
+                        autoComplete="lastName"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        value={formState.lastName}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                       Username
                     </label>
                     <div className="mt-1">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
+                        id="username"
+                        name="username"
+                        type="username"
+                        autoComplete="username"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        value={formState.username}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -105,6 +113,8 @@ export default function SignIn({setFormChoice}) {
                         autoComplete="email"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        value={formState.email}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -118,9 +128,11 @@ export default function SignIn({setFormChoice}) {
                         id="password"
                         name="password"
                         type="password"
-                        autoComplete="current-password"
+                        autoComplete="password"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        value={formState.password}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
