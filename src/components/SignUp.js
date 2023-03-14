@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
+import { REGISTER_USER } from '.../utils/mutations'
 import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 
 
