@@ -16,6 +16,8 @@ export default function SignIn({setFormChoice}) {
   const handleChange = (event) => {
     const { name, value } = event.target
 
+    console.log(name + value)
+
     setFormState({...formState, [name]: value})
   }
 
@@ -25,7 +27,8 @@ export default function SignIn({setFormChoice}) {
     console.log(formState)
 
     try {
-      const { data } = await login({variables: { ...formState },
+      const { data } = await login({
+        variables: { ...formState },
       })
 
       Auth.login(data.login.token);
@@ -34,6 +37,7 @@ export default function SignIn({setFormChoice}) {
       console.error(JSON.stringify(err,null,2))
     }
 
+    //Clear form values
     setFormState({
       username: '',
       password: '',
@@ -41,7 +45,6 @@ export default function SignIn({setFormChoice}) {
     }
   return (
       <div className="flex min-h-full object-fill">
-
         <div className="flex flex-1 flex-col justify-center mb-28 py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className='flex justify-center'>
         <LogoCircleOnly 
