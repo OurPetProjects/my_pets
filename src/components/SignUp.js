@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { REGISTER_USER } from '.../utils/mutations'
+import { REGISTER_USER } from '../utils/mutations'
+import Auth from '../utils/auth'
 import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 
 
-// import Auth from '../utils/auth';
+// Import Auth from '../utils/auth';
 
 export default function SignIn({setFormChoice}) {
   const navigate = useNavigate()
-  const [formState, setFormState] = useState({firstName:'', lastName:'', username:'',email:'', password: ''})
+  const [formState, setFormState] = useState({firstName:'', lastName:'', username:'', email:'', password: ''})
+  const [register, {error, data}] = useMutation(REGISTER_USER)
 
   // Update state based on form input changes
   const handleChange = (event) => {
@@ -20,9 +22,26 @@ export default function SignIn({setFormChoice}) {
     setFormState({...formState, [name]: value})
   }
 
+  // Registers user upon submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState)
+
+    try {
+      const { data } = await register({
+        variables: { ...formState },
+      })
+
+      Auth.register(data.register.token)
+    } catch (err) {
+      console.error(JSON.stringify(err,null,2))
+    }
+
+    // Clear from values
+    setFormState({
+      firstName:'',
+      lastName:'', username:'',email:'', password: ''
+    })
   }
   return (
       <div className="flex min-h-full object-fill">
