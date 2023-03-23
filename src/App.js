@@ -12,6 +12,7 @@ import {
  } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home"
+import Landing from "./pages/Landing"
 
 const url = '/graphql'
 
@@ -44,6 +45,7 @@ function App() {
       <>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route path="/Landing" element={<Landing />} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
         </Routes>
       </>

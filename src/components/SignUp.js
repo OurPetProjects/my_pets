@@ -13,12 +13,13 @@ export default function SignIn({setFormChoice}) {
   const [formState, setFormState] = useState({firstName:'', lastName:'', username:'', email:'', password: ''})
   const [register, {error, data}] = useMutation(REGISTER_USER)
 
+  const toLanding = () => {
+    navigate('/landing')
+  }
+
   // Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target
-
-    console.log(name + value)
-
     setFormState({...formState, [name]: value})
   }
 
@@ -40,8 +41,13 @@ export default function SignIn({setFormChoice}) {
     // Clear from values
     setFormState({
       firstName:'',
-      lastName:'', username:'',email:'', password: ''
+      lastName:'',
+      username:'',
+      email:'',
+      password: ''
     })
+
+    toLanding()
   }
   return (
       <div className="flex min-h-full object-fill">
