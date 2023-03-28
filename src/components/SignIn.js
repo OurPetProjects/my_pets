@@ -12,16 +12,19 @@ export default function SignIn({setFormChoice}) {
   const [formState, setFormState] = useState({username:'', password: ''})
   const [login, {error, data}] = useMutation(LOGIN_USER)
 
+  // Navigates to new page
+  const toLanding = () => {
+    navigate('/dashboard')
+  }
+
   // Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target
-
     console.log(name + value)
-
     setFormState({...formState, [name]: value})
   }
 
-  // Submit form
+  // User login upon submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState)
@@ -42,6 +45,8 @@ export default function SignIn({setFormChoice}) {
       username: '',
       password: '',
     })
+
+    toLanding()
     }
   return (
       <div className="flex min-h-full object-fill">
