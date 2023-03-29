@@ -33,8 +33,10 @@ export default function SignIn({setFormChoice}) {
       const { data } = await register({
         variables: { ...formState },
       })
-
-      Auth.register(data.register.token)
+      console.log("Line 36")
+      Auth.login(data.register.token)
+      console.log("Line 37")
+      toLanding()
     } catch (err) {
       console.error(JSON.stringify(err,null,2))
     }
@@ -47,8 +49,7 @@ export default function SignIn({setFormChoice}) {
       email:'',
       password: ''
     })
-
-    toLanding()
+    
   }
   return (
       <div className="flex min-h-full object-fill">

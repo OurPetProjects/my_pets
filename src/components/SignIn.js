@@ -35,7 +35,7 @@ export default function SignIn({setFormChoice}) {
       })
 
       Auth.login(data.login.token);
-      // navigate()
+      toLanding()
     } catch (err) {
       console.error(JSON.stringify(err,null,2))
     }
@@ -45,8 +45,6 @@ export default function SignIn({setFormChoice}) {
       username: '',
       password: '',
     })
-
-    toLanding()
     }
   return (
       <div className="flex min-h-full object-fill">
