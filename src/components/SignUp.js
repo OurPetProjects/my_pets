@@ -13,8 +13,9 @@ export default function SignIn({setFormChoice}) {
   const [formState, setFormState] = useState({firstName:'', lastName:'', username:'', email:'', password: ''})
   const [register, {error, data}] = useMutation(REGISTER_USER)
 
+  // Navigates to new page
   const toLanding = () => {
-    navigate('/landing')
+    navigate('/dashboard')
   }
 
   // Update state based on form input changes

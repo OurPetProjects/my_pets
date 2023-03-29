@@ -1,6 +1,6 @@
 
 
-export default function Landing() {
+export default function Dashboard() {
     return (
         <p>It's working!</p>
     )
