@@ -20,14 +20,12 @@ export default function SignIn({setFormChoice}) {
   // Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target
-    console.log(name + value)
     setFormState({...formState, [name]: value})
   }
 
   // User login upon submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState)
 
     try {
       const { data } = await login({
