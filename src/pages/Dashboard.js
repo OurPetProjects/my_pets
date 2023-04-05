@@ -16,7 +16,7 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
+import { ReactComponent as LogoNoText } from '../assets/logo-elements/logo-circle-only.svg'
 import Auth from '../utils/auth';
 
 // Nav Data
@@ -110,11 +110,10 @@ export default function Dashboard() {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-blue px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                        alt="Your Company"
-                      />
+                    <LogoNoText 
+                      className="h-12 w-auto"
+                      alt="My Pets logo"
+                    />
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -196,12 +195,11 @@ export default function Dashboard() {
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-blue px-6 pb-4">
-            <div className="flex h-16 shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                alt="Your Company"
-              />
+            <div className="flex h-16 shrink-0 items-center">   
+            <LogoNoText 
+              className="h-12 w-auto rounded-full"
+              alt="My Pets logo"
+            />
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -315,7 +313,7 @@ export default function Dashboard() {
                   className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
                 </button>
 
                 {/* Separator */}
@@ -328,15 +326,11 @@ export default function Dashboard() {
                 <Menu as="div" className="relative">
                   <Menu.Button className="-m-1.5 flex items-center p-1.5">
                     <span className="sr-only">Open user menu</span>
-                    <LogoCircleOnly 
-                      className="h-8 w-8 rounded-full bg-gray-50"
-                      alt="My Pets logo"
-                    />
                     <span className="hidden lg:flex lg:items-center">
                       <span
                         className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                         aria-hidden="true"
-                      >
+                      >Welcome,{" "} 
                         {Auth.getProfile().firstName}
                       </span>
                       <ChevronDownIcon
