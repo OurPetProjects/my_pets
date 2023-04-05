@@ -7,7 +7,7 @@ import SignIn from "../components/SignIn"
 
 // import Auth from '../utils/auth';
 
-export default function Home() {
+export default function Launch() {
   const navigate = useNavigate();
   // set initial signin state
   const [formChoice, setFormChoice] = useState("signIn")

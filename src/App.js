@@ -11,7 +11,7 @@ import {
   Route,
  } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home"
+import Launch from "./pages/Launch"
 import Dashboard from "./pages/Dashboard"
 
 const url = '/graphql'
@@ -44,7 +44,7 @@ function App() {
     <ApolloProvider client={client}>
       <>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Launch />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
         </Routes>
