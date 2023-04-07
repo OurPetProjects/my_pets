@@ -18,9 +18,15 @@ module.exports = {
       blue: "#7293A0",
       red: "#8A3431",
       white: "#FDFFFB",
+      error: "#CA6B68",
+      green: "#1C7C54",
+      black: "#000000"
     },
     fontFamily: {
-      // Set chosen font(s) here
+      // Crimson Pro
+      crimson: ["Crimson Pro", "serif"],
+      // Open Sans
+      open: ["Open Sans", "sans-serif"],
     },
     extend: {},
   },
