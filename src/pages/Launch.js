@@ -27,6 +27,8 @@ export default function Launch() {
         return <SignIn setFormChoice={setFormChoice} />;
       case "signUp":
         return <SignUp setFormChoice={setFormChoice} />;
+      default:
+        return  <SignIn setFormChoice={setFormChoice} />
     }
   }
 
