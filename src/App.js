@@ -41,7 +41,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={client} className="font-open">
       <>
         <Routes>
           <Route exact path="/" element={<Launch />} />
