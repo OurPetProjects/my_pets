@@ -143,6 +143,7 @@ export default function Dashboard() {
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <a
+                                  onClick={() => {setView(item.page); setSidebarOpen(false)}}
                                   href={item.href}
                                   className={classNames(
                                     item.current
