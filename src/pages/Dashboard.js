@@ -18,17 +18,22 @@ import {
 } from "@heroicons/react/20/solid";
 import { ReactComponent as LogoCircleOnly } from '../assets/logos-full/logo-full-transparent.svg'
 import Auth from '../utils/auth';
+import Quickview from '../components/Quickview'
+import MyPets from '../components/MyPets'
+import MyTasks from '../components/MyTasks'
+import MyCalendar from '../components/MyCalendar'
+import MyProfile from '../components/MyProfile'
 
 // Nav Data
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "My Pets", href: "#", icon: UsersIcon, current: false },
-  { name: "My Tasks", href: "#", icon: FolderIcon, current: false },
-  { name: "My Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "My Profile", href: "#", icon: DocumentDuplicateIcon, current: false },
+  { name: "Dashboard", href: "#", icon: HomeIcon, current: true, page: "Quickview" },
+  { name: "My Pets", href: "#", icon: UsersIcon, current: false, page: "MyPets" },
+  { name: "My Tasks", href: "#", icon: FolderIcon, current: false, page: "MyTasks" },
+  { name: "My Calendar", href: "#", icon: CalendarIcon, current: false, page: "MyCalendar" },
+  { name: "My Profile", href: "#", icon: DocumentDuplicateIcon, current: false, page: "MyProfile" },
 ];
 
-// Teams Data
+// Teams Data - To be built later if we wish to make use of this functionality
 // const teams = [
 //   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
 //   { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
@@ -49,8 +54,24 @@ function classNames(...classes) {
 export default function Dashboard() {
   // Sidebar open/close
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [view, setView] = useState("Quickview")
 
-  console.log("name: " + JSON.stringify(Auth.getProfile()))
+  function displayComponent() {
+    switch(view) {
+      case "Quickview":
+          return <Quickview />
+      case "MyPets":
+        return <MyPets />
+      case "MyTasks":
+        return <MyTasks />
+      case "MyCalendar":
+        return <MyCalendar />
+      case "MyProfile":
+        return <MyProfile />
+      default:
+        return <Quickview />
+    }
+  }
 
   return (
     <>
@@ -217,6 +238,7 @@ export default function Dashboard() {
                               : "text-indigo-200 hover:text-white hover:bg-indigo-700",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
+                          onClick={() => setView(item.page) }
                         >
                           <item.icon
                             className={classNames(
@@ -378,7 +400,7 @@ export default function Dashboard() {
           </div>
 
           <main className="py-10">
-            <div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
+            <div className="px-4 sm:px-6 lg:px-8">{displayComponent()}</div>
           </main>
         </div>
       </div>
