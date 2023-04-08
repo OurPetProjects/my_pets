@@ -58,13 +58,13 @@ export default function SignIn({ setFormChoice }) {
         <div className=" mx-auto w-full max-w-sm lg:w-96">
           <div className="">
             <h2 className="mt-6 text-3xl font-bold tracking-tight">
-              Sign in to your account
+              Sign in to your account:
             </h2>
             <p className="mt-2 text-sm">
               Or{" "}
               <a
                 onClick={() => setFormChoice("signUp")}
-                className="font-semibold hover:underline hover:font-bold hover:decoration-yellow hover:decoration-2 cursor-pointer"
+                className="font-semibold hover:underline hover:text-blue hover:decoration-yellow hover:decoration-2 cursor-pointer"
               >
                 sign up
               </a>
@@ -81,10 +81,7 @@ export default function SignIn({ setFormChoice }) {
               >
                 {/* Username field */}
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium">
                     Username
                   </label>
                   <div className="mt-1">
@@ -104,7 +101,7 @@ export default function SignIn({ setFormChoice }) {
                 <div className="space-y-1">
                   <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium"
                   >
                     Password
                   </label>
@@ -131,10 +128,7 @@ export default function SignIn({ setFormChoice }) {
                       type="checkbox"
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
-                    <label
-                      htmlFor="remember-me"
-                      className="ml-2 block text-sm text-gray-900"
-                    >
+                    <label htmlFor="remember-me" className="ml-2 block text-sm">
                       Remember me
                     </label>
                   </div>
@@ -142,7 +136,7 @@ export default function SignIn({ setFormChoice }) {
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold hover:font-bold hover:underline hover:decoration-yellow hover:decoration-2"
+                      className="font-semibold hover:text-blue hover:underline hover:decoration-yellow hover:decoration-2"
                     >
                       Forgot your password?
                     </a>
@@ -168,6 +162,7 @@ export default function SignIn({ setFormChoice }) {
           className="absolute inset-0 h-full w-full object-cover"
           src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/german-shepherd-dog-royalty-free-image-806942944-1560893738.jpg"
           alt="Happy Dog"
+          // TODO: Aria-label for accessibility
         />
       </div>
     </div>
