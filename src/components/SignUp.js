@@ -62,10 +62,10 @@ export default function SignIn({setFormChoice}) {
                alt="My Pets logo"
               />
               </div>
-              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">Sign up to join our community of pet lovers</h2>
-              <p className="mt-2 text-sm text-gray-600">
+              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">Sign up to join our community of pet lovers:</h2>
+              <p className="mt-2 text-sm">
                 Or{' '}
-                <a onClick={() => setFormChoice("signIn")} className="font-medium text-indigo-600 hover:text-indigo-500">
+                <a onClick={() => setFormChoice("signIn")} className="font-semibold hover:underline hover:text-blue hover:decoration-yellow hover:decoration-2 cursor-pointer">
                   sign in
                 </a>
               </p>
@@ -75,7 +75,7 @@ export default function SignIn({setFormChoice}) {
               <div className="mt-6">
                 <form onSubmit={handleFormSubmit}action="#" method="POST" className="space-y-6">
                 <div>
-                    <label htmlFor="Firstname" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="Firstname" className="block text-sm font-medium ">
                       First Name
                     </label>
                     <div className="mt-1">
@@ -85,7 +85,8 @@ export default function SignIn({setFormChoice}) {
                         type="firstName"
                         autoComplete="firstName"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-black px-3 py-2 shadow-sm focus:border-green focus:outline-none focus:ring-1 focus:ring-green sm:text-sm"
+                        placeholder='Enter your first name'
                         value={formState.firstName}
                         onChange={handleChange}
                       />
@@ -93,7 +94,7 @@ export default function SignIn({setFormChoice}) {
                   </div>
 
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="lastName" className="block text-sm font-medium ">
                       Last Name
                     </label>
                     <div className="mt-1">
@@ -103,7 +104,8 @@ export default function SignIn({setFormChoice}) {
                         type="lastName"
                         autoComplete="lastName"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-black px-3 py-2 shadow-sm focus:border-green focus:outline-none focus:ring-1 focus:ring-green sm:text-sm"
+                        placeholder='Enter your last name'
                         value={formState.lastName}
                         onChange={handleChange}
                       />
@@ -111,7 +113,7 @@ export default function SignIn({setFormChoice}) {
                   </div>
 
                   <div>
-                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="username" className="block text-sm font-medium ">
                       Username
                     </label>
                     <div className="mt-1">
@@ -121,7 +123,8 @@ export default function SignIn({setFormChoice}) {
                         type="username"
                         autoComplete="username"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-black px-3 py-2 shadow-sm focus:border-green focus:outline-none focus:ring-1 focus:ring-green sm:text-sm"
+                        placeholder='Choose a username'
                         value={formState.username}
                         onChange={handleChange}
                       />
@@ -129,7 +132,7 @@ export default function SignIn({setFormChoice}) {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="email" className="block text-sm font-medium ">
                       Email address
                     </label>
                     <div className="mt-1">
@@ -139,7 +142,8 @@ export default function SignIn({setFormChoice}) {
                         type="email"
                         autoComplete="email"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-black px-3 py-2 shadow-sm focus:border-green focus:outline-none focus:ring-1 focus:ring-green sm:text-sm"
+                        placeholder='Enter your email address'
                         value={formState.email}
                         onChange={handleChange}
                       />
@@ -147,7 +151,7 @@ export default function SignIn({setFormChoice}) {
                   </div>
 
                   <div className="space-y-1">
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="password" className="block text-sm font-medium ">
                       Password
                     </label>
                     <div className="mt-1">
@@ -157,7 +161,8 @@ export default function SignIn({setFormChoice}) {
                         type="password"
                         autoComplete="password"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-black px-3 py-2 shadow-sm focus:border-green focus:outline-none focus:ring-1 focus:ring-green sm:text-sm"
+                        placeholder='Choose a password'
                         value={formState.password}
                         onChange={handleChange}
                       />
@@ -166,7 +171,7 @@ export default function SignIn({setFormChoice}) {
                   <div className="">
                     <button
                       type="submit"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-blue py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="flex w-full justify-center rounded-md border border-transparent bg-blue py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-light-blue hover:drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-1"
                     >
                       Sign Up
                     </button>
