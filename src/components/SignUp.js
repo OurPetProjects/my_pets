@@ -74,7 +74,7 @@ export default function SignIn({ setFormChoice }) {
               Or{" "}
               <a
                 onClick={() => setFormChoice("signIn")}
-                className="font-semibold hover:underline hover:text-blue hover:decoration-yellow hover:decoration-2 cursor-pointer"
+                className="font-bold underline decoration-yellow decoration-2 hover:text-blue cursor-pointer"
               >
                 sign in
               </a>
