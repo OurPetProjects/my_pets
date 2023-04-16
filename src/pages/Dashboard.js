@@ -14,21 +14,51 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import { ReactComponent as LogoNoText } from '../assets/logo-elements/logo-circle-only.svg'
-import Auth from '../utils/auth';
-import Quickview from '../components/Quickview'
-import MyPets from '../components/MyPets'
-import MyTasks from '../components/MyTasks'
-import MyCalendar from '../components/MyCalendar'
-import MyProfile from '../components/MyProfile'
+import { ReactComponent as LogoNoText } from "../assets/logo-elements/logo-white-pets-transparent-background.svg";
+import Auth from "../utils/auth";
+import Quickview from "../components/Quickview";
+import MyPets from "../components/MyPets";
+import MyTasks from "../components/MyTasks";
+import MyCalendar from "../components/MyCalendar";
+import MyProfile from "../components/MyProfile";
 
 // Nav Data
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true, page: "Quickview" },
-  { name: "My Pets", href: "#", icon: HeartIcon, current: false, page: "MyPets" },
-  { name: "My Tasks", href: "#", icon: CheckIcon, current: false, page: "MyTasks" },
-  { name: "My Calendar", href: "#", icon: CalendarIcon, current: false, page: "MyCalendar" },
-  { name: "My Profile", href: "#", icon: UserIcon, current: false, page: "MyProfile" },
+  {
+    name: "Dashboard",
+    href: "#",
+    icon: HomeIcon,
+    current: true,
+    page: "Quickview",
+  },
+  {
+    name: "My Pets",
+    href: "#",
+    icon: HeartIcon,
+    current: false,
+    page: "MyPets",
+  },
+  {
+    name: "My Tasks",
+    href: "#",
+    icon: CheckIcon,
+    current: false,
+    page: "MyTasks",
+  },
+  {
+    name: "My Calendar",
+    href: "#",
+    icon: CalendarIcon,
+    current: false,
+    page: "MyCalendar",
+  },
+  {
+    name: "My Profile",
+    href: "#",
+    icon: UserIcon,
+    current: false,
+    page: "MyProfile",
+  },
 ];
 
 // Teams Data - To be built later if we wish to make use of this functionality
@@ -52,22 +82,22 @@ function classNames(...classes) {
 export default function Dashboard() {
   // Sidebar open/close
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [view, setView] = useState("Quickview")
+  const [view, setView] = useState("Quickview");
 
   function displayComponent() {
-    switch(view) {
+    switch (view) {
       case "Quickview":
-          return <Quickview />
+        return <Quickview />;
       case "MyPets":
-        return <MyPets />
+        return <MyPets />;
       case "MyTasks":
-        return <MyTasks />
+        return <MyTasks />;
       case "MyCalendar":
-        return <MyCalendar />
+        return <MyCalendar />;
       case "MyProfile":
-        return <MyProfile />
+        return <MyProfile />;
       default:
-        return <Quickview />
+        return <Quickview />;
     }
   }
 
@@ -129,10 +159,13 @@ export default function Dashboard() {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-blue px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
-                    <LogoNoText 
-                      className="h-12 w-auto"
-                      alt="My Pets logo"
-                    />
+                      <a href="/dashboard">
+                        <LogoNoText
+                          className="h-12 w-auto"
+                          alt="My Pets logo"
+                          aria-label="My Pets logo: sillhouettes of a dog, cat, bird, and heart, cradled by a yellow hand, encircled by a yellow border."
+                        />
+                      </a>
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -141,13 +174,16 @@ export default function Dashboard() {
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <a
-                                  onClick={() => {setView(item.page); setSidebarOpen(false)}}
+                                  onClick={() => {
+                                    setView(item.page);
+                                    setSidebarOpen(false);
+                                  }}
                                   href={item.href}
                                   className={classNames(
                                     item.current
-                                      ? "bg-indigo-700 text-white"
-                                      : "text-indigo-200 hover:text-white hover:bg-indigo-700",
-                                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                                      ? "text-white"
+                                      : " text-white ",
+                                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold hover:bg-light-blue focus:ring-1 focus:ring-slate"
                                   )}
                                 >
                                   <item.icon
@@ -215,11 +251,12 @@ export default function Dashboard() {
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-blue px-6 pb-4">
-            <div className="flex h-16 shrink-0 items-center">   
-            <LogoNoText 
-              className="h-12 w-auto rounded-full"
-              alt="My Pets logo"
-            />
+            <div className="flex h-16 shrink-0 items-center">
+              <LogoNoText
+                className="h-12 w-auto rounded-full"
+                alt="My Pets logo"
+                aria-label="My Pets logo: sillhouettes of a dog, cat, bird, and heart, cradled by a yellow hand, encircled by a yellow border."
+              />
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -235,7 +272,7 @@ export default function Dashboard() {
                               : "text-indigo-200 hover:text-white hover:bg-indigo-700",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
-                          onClick={() => setView(item.page) }
+                          onClick={() => setView(item.page)}
                         >
                           <item.icon
                             className={classNames(
@@ -351,8 +388,8 @@ export default function Dashboard() {
                       <span
                         className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                         aria-hidden="true"
-                      >Welcome,{" "} 
-                        {Auth.getProfile().firstName}
+                      >
+                        Welcome, {Auth.getProfile().firstName}
                       </span>
                       <ChevronDownIcon
                         className="ml-2 h-5 w-5 text-gray-400"
