@@ -2,14 +2,12 @@ import { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
-  BellIcon,
   CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
+  HeartIcon,
+  CheckIcon,
   HomeIcon,
-  UsersIcon,
+  UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
@@ -27,10 +25,10 @@ import MyProfile from '../components/MyProfile'
 // Nav Data
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true, page: "Quickview" },
-  { name: "My Pets", href: "#", icon: UsersIcon, current: false, page: "MyPets" },
-  { name: "My Tasks", href: "#", icon: FolderIcon, current: false, page: "MyTasks" },
+  { name: "My Pets", href: "#", icon: HeartIcon, current: false, page: "MyPets" },
+  { name: "My Tasks", href: "#", icon: CheckIcon, current: false, page: "MyTasks" },
   { name: "My Calendar", href: "#", icon: CalendarIcon, current: false, page: "MyCalendar" },
-  { name: "My Profile", href: "#", icon: DocumentDuplicateIcon, current: false, page: "MyProfile" },
+  { name: "My Profile", href: "#", icon: UserIcon, current: false, page: "MyProfile" },
 ];
 
 // Teams Data - To be built later if we wish to make use of this functionality
