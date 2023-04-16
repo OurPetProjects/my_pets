@@ -52,7 +52,7 @@ export default function SignIn({ setFormChoice }) {
           <LogoCircleOnly
             className="h-80 w-auto object-fill mb-14"
             alt="My Pets logo"
-            //  TODO: Add aria-label for accessibility
+            aria-label="My Pets logo: sillhouettes of a dog, cat, bird, and heart, cradled by a yellow hand, encircled by a yellow border."
           />
         </div>
         <div className=" mx-auto w-full max-w-sm lg:w-96">
