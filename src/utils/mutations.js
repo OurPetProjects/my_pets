@@ -71,3 +71,16 @@ export const deletePet = gql`
     }
 `;
 
+export const createPet = gql`
+    mutation createPet($petName: String!, $species: String!, $age: Int!, $parentUsername: String!) {
+        createPet(petName: $petName, species: $species, age: $age, parentUsername: $parentUsername) {
+            _id
+            parentUsername
+            petName
+            species
+            age
+            notes
+        }
+    }
+`;
+
