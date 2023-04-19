@@ -34,4 +34,18 @@ export const editTask = gql`
             tasks
         }
     }
-`
+`;
+
+export const editPet = gql`
+    mutation editPet(petId: ID!, $petName: String, $species: String, $age: Int, $parentUsername: String, $notes: String) {
+        editPet(petId: $petId, petName: $petName, species: $species, age: $age, parentUsername: $parentUsername, notes: $notes) {
+            _id
+            petName
+            species
+            age
+            parentUsername
+            notes
+            tasks
+        }
+    }
+`;
