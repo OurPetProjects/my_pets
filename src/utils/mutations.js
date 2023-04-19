@@ -25,3 +25,13 @@ export const REGISTER_USER = gql`
         }
     }
 `;
+
+export const editTask = gql`
+    mutation editTask($petId: ID!, $task: String) {
+        editTask(petId: $petId, task: $task) {
+            parentUsername
+            petName
+            tasks
+        }
+    }
+`
