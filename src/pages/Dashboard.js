@@ -229,10 +229,10 @@ export default function Dashboard() {
                         <li className="mt-auto">
                           <a
                             href="#"
-                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 hover:bg-light-blue hover:text-white"
                           >
                             <Cog6ToothIcon
-                              className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
+                              className="h-6 w-6 shrink-0 group-hover:text-white"
                               aria-hidden="true"
                             />
                             Settings
@@ -268,9 +268,9 @@ export default function Dashboard() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-indigo-700 text-white"
-                              : "text-indigo-200 hover:text-white hover:bg-indigo-700",
-                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                              ? "text-white"
+                              : "hover:text-white hover:bg-indigo-700",
+                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold hover:bg-light-blue focus:ring-1 focus:ring-slate"
                           )}
                           onClick={() => setView(item.page)}
                         >
@@ -278,7 +278,7 @@ export default function Dashboard() {
                             className={classNames(
                               item.current
                                 ? "text-white"
-                                : "text-indigo-200 group-hover:text-white",
+                                : "group-hover:text-white",
                               "h-6 w-6 shrink-0"
                             )}
                             aria-hidden="true"
@@ -317,7 +317,7 @@ export default function Dashboard() {
                 <li className="mt-auto">
                   <a
                     href="#"
-                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6  hover:bg-light-blue hover:text-white"
                   >
                     <Cog6ToothIcon
                       className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
@@ -344,7 +344,7 @@ export default function Dashboard() {
 
             {/* Separator */}
             <div
-              className="h-6 w-px bg-gray-900/10 lg:hidden"
+              className="h-6 w-px bg-yellow lg:hidden"
               aria-hidden="true"
             />
 
@@ -354,12 +354,12 @@ export default function Dashboard() {
                   Search
                 </label>
                 <MagnifyingGlassIcon
-                  className="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400"
+                  className="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-slate"
                   aria-hidden="true"
                 />
                 <input
                   id="search-field"
-                  className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                  className="block h-full w-full border-0 py-0 pl-8 pr-0 text-slate placeholder:text-blue focus:ring-0 sm:text-sm"
                   placeholder="Search..."
                   type="search"
                   name="search"
@@ -368,7 +368,7 @@ export default function Dashboard() {
               <div className="flex items-center gap-x-4 lg:gap-x-6">
                 <button
                   type="button"
-                  className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
+                  className="-m-2.5 p-2.5"
                 >
                   <span className="sr-only">View notifications</span>
                   {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
@@ -376,7 +376,7 @@ export default function Dashboard() {
 
                 {/* Separator */}
                 <div
-                  className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10"
+                  className="hidden lg:block lg:h-6 lg:w-px lg:bg-yellow"
                   aria-hidden="true"
                 />
 
@@ -386,13 +386,13 @@ export default function Dashboard() {
                     <span className="sr-only">Open user menu</span>
                     <span className="hidden lg:flex lg:items-center">
                       <span
-                        className="ml-4 text-sm font-semibold leading-6 text-gray-900"
+                        className="ml-4 text-sm font-semibold leading-6"
                         aria-hidden="true"
                       >
                         Welcome, {Auth.getProfile().firstName}
                       </span>
                       <ChevronDownIcon
-                        className="ml-2 h-5 w-5 text-gray-400"
+                        className="ml-2 h-5 w-5 text-blue hover:text-slate focus:bg-light-blue"
                         aria-hidden="true"
                       />
                     </span>
@@ -406,15 +406,15 @@ export default function Dashboard() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-blue focus:outline-none">
                       {userNavigation.map((item) => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
                             <a
                               href={item.href}
                               className={classNames(
-                                active ? "bg-gray-50" : "",
-                                "block px-3 py-1 text-sm leading-6 text-gray-900"
+                                active ? "bg-light-blue text-white" : "",
+                                "block px-3 py-1 text-sm leading-6 "
                               )}
                             >
                               {item.name}
