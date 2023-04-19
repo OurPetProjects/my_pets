@@ -60,3 +60,14 @@ export const deleteTask = gql`
         }
     }
 `;
+
+export const deletePet = gql`
+    mutation deletePet($petId: ID!) {
+        deletePet(petId: $petId) {
+            _id
+            parentUsername
+            petName
+        }
+    }
+`;
+
