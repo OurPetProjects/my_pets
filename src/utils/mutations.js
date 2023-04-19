@@ -49,3 +49,14 @@ export const editPet = gql`
         }
     }
 `;
+
+export const deleteTask = gql`
+    mutation deleteTask($petId: ID!, $task: String) {
+        deleteTask(petId: $petId, task: $task) {
+            _id
+            parentUsername
+            petName
+            tasks
+        }
+    }
+`;
