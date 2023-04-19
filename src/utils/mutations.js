@@ -84,3 +84,12 @@ export const createPet = gql`
     }
 `;
 
+export const addTask = gql`
+    mutation addTask($petId: ID!, $task: String) {
+        addTask(petId: $petId, task: $task) {
+            parentUsername
+            petName
+            tasks
+        }
+    }
+`;
