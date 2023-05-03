@@ -1,5 +1,9 @@
+// ! Imports
+// React
 import { Fragment, useState } from "react";
+// Headless
 import { Dialog, Menu, Transition } from "@headlessui/react";
+// Icons
 import {
   Bars3Icon,
   CalendarIcon,
@@ -14,14 +18,18 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
+// Logo
 import { ReactComponent as LogoNoText } from "../assets/logo-elements/logo-white-pets-transparent-background.svg";
+// Utils
 import Auth from "../utils/auth";
+// Components
 import Quickview from "../components/Quickview";
 import MyPets from "../components/MyPets";
 import MyTasks from "../components/MyTasks";
 import MyCalendar from "../components/MyCalendar";
 import MyProfile from "../components/MyProfile";
 
+// ! Data
 // Nav Data
 const navigation = [
   {
@@ -74,16 +82,18 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
-// ?
+// TODO: For the current item selected to be highlighted. Likely needs useState for functionality.
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+// ! Function
 export default function Dashboard() {
   // Sidebar open/close
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [view, setView] = useState("Quickview");
 
+  // Switch case for displayed component
   function displayComponent() {
     switch (view) {
       case "Quickview":
@@ -101,6 +111,7 @@ export default function Dashboard() {
     }
   }
 
+  // ** RETURN **
   return (
     <>
       <div>
