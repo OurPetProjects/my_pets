@@ -1,5 +1,11 @@
+ // ! Imports
+
+
+// ! Function
 export default function Quickview() {
-    return (
+    
+  // ** RETURN **
+  return (
         <p> Quickview!</p>
     )
 }

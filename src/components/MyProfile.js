@@ -1,5 +1,10 @@
+// ! Imports
+
+// ! Function
 export default function MyProfile() {
-    return (
+    
+  // ** RETURN **
+  return (
         <p> My Profile!</p>
     )
 }

@@ -1,27 +1,38 @@
+// ! Imports
+// React
 import React, { useState } from "react";
+// Router
 import { Link, useNavigate } from "react-router-dom";
+// Apollo
 import { useMutation } from "@apollo/client";
+// Utils
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+// Images
 import { ReactComponent as LogoCircleOnly } from "../assets/logos-full/logo-full-transparent.svg";
 
-// import Auth from '../utils/auth';
 
+// ! Function
 export default function SignIn({ setFormChoice }) {
+  
+  // * Navigation
   const navigate = useNavigate();
+    // Navigates to new page
+    const toLanding = () => {
+      navigate("/dashboard");
+    };
+
+  // * Form
+  // Clears form 
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // Navigates to new page
-  const toLanding = () => {
-    navigate("/dashboard");
-  };
-
-  // Update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value });
-  };
+    // Update state based on form input changes
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormState({ ...formState, [name]: value });
+    };
+  
 
   // User login upon submit
   const handleFormSubmit = async (event) => {
@@ -45,6 +56,7 @@ export default function SignIn({ setFormChoice }) {
     });
   };
 
+  // ** RETURN **
   return (
     <div className="flex min-h-full object-fill">
       <div className="flex flex-1 flex-col justify-center mb-28 py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
