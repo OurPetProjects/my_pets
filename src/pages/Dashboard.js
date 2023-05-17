@@ -78,7 +78,6 @@ const navigation = [
 
 // User Nav Data
 const userNavigation = [
-  { name: "Your profile", href: "#" },
   { name: "Sign out", href: "#" },
 ];
 
@@ -427,6 +426,7 @@ export default function Dashboard() {
                                 active ? "bg-light-blue text-white" : "",
                                 "block px-3 py-1 text-sm leading-6 "
                               )}
+                              onClick={Auth.logout}
                             >
                               {item.name}
                             </a>
