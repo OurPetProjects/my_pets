@@ -32,7 +32,11 @@ query getPets{
 
 // TODO: All user tasks
 // export const QUERY_TASKS = gql `
+
 // query getTasks{}
+
+// query getTasks
+
 
 // `;
 
